@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cobb8gssiicph"
-path="res://.godot/imported/star_512px.svg-85a10d413477a4e9e91b5116e8ef35fa.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://assets/stars/star_512px.svg"
-dest_files=["res://.godot/imported/star_512px.svg-85a10d413477a4e9e91b5116e8ef35fa.ctex"]
 
 [params]
 

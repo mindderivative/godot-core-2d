@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://sh5w67w6b44q"
-path="res://.godot/imported/8pnt_star_ring_small.svg-00c425990933b0da70d6f5db7f987ca8.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://assets/stars/8pnt_star_ring_small.svg"
-dest_files=["res://.godot/imported/8pnt_star_ring_small.svg-00c425990933b0da70d6f5db7f987ca8.ctex"]
 
 [params]
 
