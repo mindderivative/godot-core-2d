@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cfnjs1lks50eg"]
+
+[ext_resource type="Texture2D" uid="uid://pmbg31gaxba" path="res://assets/enemies/textures/enemy.svg" id="1_vf7da"]
+[ext_resource type="Script" uid="uid://nnbp8rgfdjr4" path="res://composition/components/movement_component.gd" id="2_17cgn"]
+
+[sub_resource type="Curve" id="Curve_17cgn"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="EnemyTriangle" type="CharacterBody2D" unique_id=694584140]
+modulate = Color(0.43137255, 0, 1, 1)
+collision_layer = 8
+collision_mask = 4
+motion_mode = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=180770503]
+visible = false
+polygon = PackedVector2Array(-16, -16, -16, 16, 16, 0)
+
+[node name="Enemy" type="Sprite2D" parent="." unique_id=107072597]
+texture = ExtResource("1_vf7da")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1113685664 node_paths=PackedStringArray("parent")]
+script = ExtResource("2_17cgn")
+speed = SubResource("Curve_17cgn")
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://nnbp8rgfdjr4"

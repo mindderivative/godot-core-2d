@@ -1,0 +1,227 @@
+[gd_scene format=3 uid="uid://dr3dm7blsuxuu"]
+
+[ext_resource type="Environment" uid="uid://dlhcte1ndfnjh" path="res://main/world/galaxy_systems/default_env.tres" id="1_yaqm1"]
+[ext_resource type="Shader" uid="uid://cjpwxmr7axk14" path="res://resources/shaders/grid_fade.gdshader" id="2_5ifit"]
+[ext_resource type="Shader" uid="uid://cq7dst2tg4law" path="res://main/world/galaxy_systems/nebula.gdshader" id="2_pfwpy"]
+[ext_resource type="Script" uid="uid://d1uabtou32er4" path="res://utilities/custom_nodes/visual_grid_2d.gd" id="2_sjas5"]
+[ext_resource type="Shader" uid="uid://duedy5ajncq" path="res://resources/shaders/stars.gdshader" id="3_pfwpy"]
+[ext_resource type="Script" uid="uid://825sulhs5cwf" path="res://composition/components/pan_and_zoom_component.gd" id="4_yrp0o"]
+[ext_resource type="Resource" uid="uid://bl5d7fp4fhs8l" path="res://resources/data/PanAndZoomComponent/pan_and_zoom_data_general.tres" id="5_5ifit"]
+[ext_resource type="Texture2D" uid="uid://fpcdmeoisp4m" path="res://assets/stars/star_64px.svg" id="6_cjgs5"]
+[ext_resource type="Script" uid="uid://2rfga12anlxm" path="res://utilities/custom_nodes/star_2d.gd" id="6_xi8rx"]
+[ext_resource type="Script" uid="uid://cof504hsd5ep8" path="res://utilities/custom_nodes/star_2d_data.gd" id="8_jed0u"]
+[ext_resource type="LabelSettings" uid="uid://cc0xmbtfm5xdk" path="res://resources/data/star_2d_data/star_label_settings.tres" id="9_apjh3"]
+[ext_resource type="Texture2D" uid="uid://sh5w67w6b44q" path="res://assets/stars/8pnt_star_ring_small.svg" id="10_ng73y"]
+
+[sub_resource type="Gradient" id="Gradient_5ifit"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pfwpy"]
+seed = 3
+frequency = 0.0015
+fractal_type = 3
+domain_warp_amplitude = 13.835
+domain_warp_frequency = 0.02
+domain_warp_fractal_lacunarity = 7.3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d7ygg"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_pfwpy")
+color_ramp = SubResource("Gradient_5ifit")
+seamless = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d7ygg"]
+shader = ExtResource("2_pfwpy")
+shader_parameter/noise_img = SubResource("NoiseTexture2D_d7ygg")
+shader_parameter/color_1 = Color(0.078431375, 0.11764706, 0.13725491, 1)
+shader_parameter/color_2 = Color(0.44297108, 0.56294864, 1, 1)
+shader_parameter/brightness = 0.30000001425
+shader_parameter/clouds_density = 0.3390000161025
+shader_parameter/uv_scale = 1.0
+shader_parameter/scroll_speed = Vector2(0.01, 0.01)
+
+[sub_resource type="Gradient" id="Gradient_pfwpy"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d7ygg"]
+seed = 9
+frequency = 0.0008
+fractal_type = 3
+domain_warp_enabled = true
+domain_warp_type = 2
+domain_warp_amplitude = 60.0
+domain_warp_frequency = 0.025
+domain_warp_fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xi8rx"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_d7ygg")
+color_ramp = SubResource("Gradient_pfwpy")
+seamless = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6qcdw"]
+shader = ExtResource("2_pfwpy")
+shader_parameter/noise_img = SubResource("NoiseTexture2D_xi8rx")
+shader_parameter/color_1 = Color(0.078431375, 0.11764706, 0.13725491, 1)
+shader_parameter/color_2 = Color(0.60466385, 0.010778497, 0.52047575, 1)
+shader_parameter/brightness = 0.30000001425
+shader_parameter/clouds_density = 0.3390000161025
+shader_parameter/uv_scale = 1.0
+shader_parameter/scroll_speed = Vector2(0.01, 0.01)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xi8rx"]
+shader = ExtResource("3_pfwpy")
+shader_parameter/star_color = Color(1, 1, 1, 1)
+shader_parameter/density = 7.438000305805
+shader_parameter/size_range = 0.02400000044148
+shader_parameter/twinkle_speed = 1.0
+shader_parameter/brightness = 0.50000002375
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pfwpy"]
+shader = ExtResource("2_5ifit")
+shader_parameter/major_color = Color(0, 1.353256, 1.353256, 1)
+shader_parameter/minor_color = Color(0, 1.353256, 1.353256, 0.50200003)
+shader_parameter/fade_radius = 500.0
+shader_parameter/feathering = 7.0
+
+[sub_resource type="Resource" id="Resource_we4sh"]
+script = ExtResource("8_jed0u")
+star_texture = ExtResource("6_cjgs5")
+star_ring_texture = ExtResource("10_ng73y")
+star_label_settings = ExtResource("9_apjh3")
+star_label_offset = Vector2(-101.5, 74.5)
+metadata/_custom_type_script = "uid://cof504hsd5ep8"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d7ygg"]
+radius = 77.0
+
+[node name="Galaxy001" type="Node2D" unique_id=1554188951]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1369432069]
+environment = ExtResource("1_yaqm1")
+
+[node name="Background" type="Node2D" parent="." unique_id=1117815621]
+z_index = -10
+
+[node name="Basic Midnight Blue" type="Parallax2D" parent="Background" unique_id=927867897]
+z_index = -9
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(0.5, 0.5)
+repeat_size = Vector2(1920, 1080)
+repeat_times = 30
+
+[node name="ColorRect" type="ColorRect" parent="Background/Basic Midnight Blue" unique_id=201074524]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+color = Color(0.078431375, 0.11764706, 0.13725491, 1)
+
+[node name="Nebula 001" type="Parallax2D" parent="Background" unique_id=33627882]
+z_index = -8
+scroll_scale = Vector2(0.05, 0.05)
+scroll_offset = Vector2(0.5, 0.5)
+repeat_size = Vector2(1920, 1080)
+repeat_times = 30
+follow_viewport = false
+
+[node name="ColorRect" type="ColorRect" parent="Background/Nebula 001" unique_id=2095959774]
+material = SubResource("ShaderMaterial_d7ygg")
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+color = Color(0.106126174, 0.15170373, 0.17558163, 0.5)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect-2" type="ColorRect" parent="Background/Nebula 001" unique_id=1111184175]
+material = SubResource("ShaderMaterial_6qcdw")
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+color = Color(0.106126174, 0.15170373, 0.17558163, 0.5)
+metadata/_edit_use_anchors_ = true
+
+[node name="Stars 001" type="Parallax2D" parent="Background" unique_id=910721530]
+z_index = -7
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(0.5, 0.5)
+repeat_size = Vector2(1920, 1080)
+repeat_times = 30
+follow_viewport = false
+
+[node name="ColorRect" type="ColorRect" parent="Background/Stars 001" unique_id=1576148876]
+material = SubResource("ShaderMaterial_xi8rx")
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VisualGrid2D" type="Node2D" parent="." unique_id=1020218034]
+material = SubResource("ShaderMaterial_pfwpy")
+script = ExtResource("2_sjas5")
+metadata/_custom_type_script = "uid://d1uabtou32er4"
+
+[node name="CelestialBodies" type="Node2D" parent="." unique_id=1325281614]
+
+[node name="Star2D" type="Sprite2D" parent="CelestialBodies" unique_id=1932757635]
+texture = ExtResource("6_cjgs5")
+script = ExtResource("6_xi8rx")
+star_2d_data = SubResource("Resource_we4sh")
+metadata/_custom_type_script = "uid://2rfga12anlxm"
+
+[node name="StarRing" type="Sprite2D" parent="CelestialBodies/Star2D" unique_id=431092757]
+texture = ExtResource("10_ng73y")
+
+[node name="StarLabel" type="Label" parent="CelestialBodies/Star2D" unique_id=1041790174]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.5
+offset_top = 42.5
+offset_right = 69.5
+offset_bottom = 87.5
+text = "Unamed Star"
+label_settings = ExtResource("9_apjh3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StarArea" type="Area2D" parent="CelestialBodies/Star2D" unique_id=1380222682]
+
+[node name="StarAreaShape" type="CollisionShape2D" parent="CelestialBodies/Star2D/StarArea" unique_id=191586339]
+shape = SubResource("CircleShape2D_d7ygg")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=268961034]
+limit_enabled = false
+
+[node name="PanAndZoomComponent" type="Node" parent="Camera2D" unique_id=1730653862 node_paths=PackedStringArray("parent", "target")]
+script = ExtResource("4_yrp0o")
+data = ExtResource("5_5ifit")
+parent = NodePath("..")
+target = NodePath("..")
+metadata/_custom_type_script = "uid://825sulhs5cwf"

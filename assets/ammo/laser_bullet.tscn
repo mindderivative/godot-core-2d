@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://o0anjuevqm5c"]
+
+[ext_resource type="Texture2D" uid="uid://bbx8a6gi581wg" path="res://assets/ammo/laser.svg" id="1_h4umo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngnxt"]
+size = Vector2(50, 10)
+
+[node name="LaserBullet" type="Node2D" unique_id=1863413010]
+
+[node name="LaserImage" type="Sprite2D" parent="." unique_id=2076965422]
+texture = ExtResource("1_h4umo")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=603780877]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=7234356]
+visible = false
+shape = SubResource("RectangleShape2D_ngnxt")

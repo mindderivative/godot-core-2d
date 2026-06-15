@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://btv2v43xstugs"]
+
+[ext_resource type="Script" uid="uid://da4nsqh538xkd" path="res://main/transitions/loading_screens/loading_screen_001.gd" id="1_ixgkk"]
+[ext_resource type="Texture2D" uid="uid://bwy7lv3p5wee7" path="res://assets/backgrounds/test_background.jpg" id="1_k2qpa"]
+[ext_resource type="Resource" uid="uid://wrgt1sbdan2t" path="res://resources/data/loading_screen_data/loading_screen_data_001.tres" id="2_ynnec"]
+
+[node name="LoadingScreen" type="Control" unique_id=1977610725]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ixgkk")
+loading_screen_data = ExtResource("2_ynnec")
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=556695497]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer" unique_id=77608702]
+self_modulate = Color(0.6542321, 0.6542321, 0.6542322, 1)
+layout_mode = 2
+texture = ExtResource("1_k2qpa")
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=200462049]
+layout_mode = 2
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/VBoxContainer" unique_id=1133820676]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+show_percentage = false

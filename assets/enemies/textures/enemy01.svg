@@ -1,0 +1,29 @@
+<<<<<<< HEAD
+version https://git-lfs.github.com/spec/v1
+oid sha256:8f8e9c40166850efa83f9e771b3ee3532f4091a78deacfcc8802bb8437946383
+size 654
+=======
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32"
+   height="32"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-539.33398,-204)">
+    <path
+       id="path2"
+       style="fill:#ffffff"
+       d="M 191.48734,192.64599 H 408.51267 L 300.00001,4.6965375 Z m 54.25634,-31.31726 54.25633,-93.974726 54.25633,93.974726 z"
+       transform="matrix(0,0.14744823,-0.17025854,0,572.13361,175.76553)" />
+  </g>
+</svg>
+>>>>>>> 4860914ce5e7ce24c4e435636883c11323136ec6

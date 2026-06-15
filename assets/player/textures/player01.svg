@@ -1,0 +1,35 @@
+<<<<<<< HEAD
+version https://git-lfs.github.com/spec/v1
+oid sha256:9713f8861c35e9bd153e0a836af88747937b4b22a913fe535d8c9f67d209e59c
+size 1251
+=======
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 128 128"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-634,-304)">
+    <circle
+       style="display:inline;fill:#333333;stroke-width:0.285778"
+       id="circle1"
+       cx="698"
+       cy="-368"
+       transform="scale(1,-1)"
+       r="55" />
+    <path
+       id="path1"
+       style="fill:#f9f9f9;stroke-width:0.332543"
+       d="m 698,304 a 64,64 0 0 0 -64,64 64,64 0 0 0 64,64 64,64 0 0 0 64,-64 64,64 0 0 0 -64,-64 z m 0,9 a 55,55 0 0 1 37.74903,15 H 705.5 h -10 v 15 h -10 v 42.5 h -10 V 363 H 643.22754 A 55,55 0 0 1 698,313 Z m 7.5,25 h 38.59765 a 55,55 0 0 1 7.98585,20 H 730.5 v 12.5 h -15 V 343 h -10 z m -10,15 h 10 v 27.5 H 718 v 9.40967 c -1.5908,1.42285 -2.50005,3.45605 -2.5,5.59033 0,4.14213 3.35786,7.5 7.5,7.5 4.14212,0 7.5,-3.35787 7.5,-7.5 5e-5,-2.13428 -0.9092,-4.16748 -2.5,-5.59033 V 380.5 h 12.5 V 368 H 753 a 55,55 0 0 1 -55,55 55,55 0 0 1 -54.77246,-50 H 665.5 v 22.5 h 10 v 7.5 h 10 v -7.5 h 10 z" />
+  </g>
+</svg>
+>>>>>>> 4860914ce5e7ce24c4e435636883c11323136ec6

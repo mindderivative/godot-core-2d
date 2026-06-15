@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cv3ns2qeuiboy"]
+
+[ext_resource type="Texture2D" uid="uid://dxwxq3dcsbq30" path="res://assets/player/textures/player.svg" id="1_d6veg"]
+[ext_resource type="Script" uid="uid://ct61kyti21npo" path="res://composition/components/radar_component.gd" id="2_h6syq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h6syq"]
+radius = 64.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v2miy"]
+radius = 448.0
+
+[node name="Player" type="Node2D" unique_id=115933422]
+
+[node name="Player" type="Sprite2D" parent="." unique_id=1006052401]
+texture = ExtResource("1_d6veg")
+
+[node name="PlayerCollision" type="Area2D" parent="." unique_id=1489991736]
+visible = false
+collision_layer = 4
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision" unique_id=1491907238]
+shape = SubResource("CircleShape2D_h6syq")
+
+[node name="RadarComponent" type="Node" parent="." unique_id=950145207 node_paths=PackedStringArray("radar_area2d", "parent", "target")]
+script = ExtResource("2_h6syq")
+radar_area2d = NodePath("../RadarArea2D")
+parent = NodePath("..")
+target = NodePath("..")
+metadata/_custom_type_script = "uid://ct61kyti21npo"
+
+[node name="RadarArea2D" type="Area2D" parent="." unique_id=1836616943]
+collision_layer = 4
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RadarArea2D" unique_id=1047793114]
+shape = SubResource("CircleShape2D_v2miy")

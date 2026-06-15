@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bg7xrfhm2d1oc"]
+
+[ext_resource type="PackedScene" uid="uid://coxmx6fh37yi8" path="res://main/gui/main_menu.tscn" id="1_53q0u"]
+
+[node name="Main" type="Node" unique_id=268675572]
+
+[node name="World" type="Node2D" parent="." unique_id=1698970333]
+z_index = 1
+
+[node name="PreviousScene" type="Node2D" parent="World" unique_id=823272609]
+
+[node name="CurrentScene" type="Node2D" parent="World" unique_id=1149306102]
+
+[node name="Player" type="Node2D" parent="World" unique_id=1289071593]
+
+[node name="GUI" type="Control" parent="." unique_id=1378702252]
+z_index = 9
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="GUILayer" type="CanvasLayer" parent="GUI" unique_id=571146361]
+
+[node name="GUIControl" type="Control" parent="GUI/GUILayer" unique_id=84808942]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MainMenu" parent="GUI/GUILayer/GUIControl" unique_id=1442309591 instance=ExtResource("1_53q0u")]
+layout_mode = 1
+
+[node name="Transitions" type="Control" parent="." unique_id=1776868267]
+visibility_layer = 1048575
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TransitionLayer" type="CanvasLayer" parent="Transitions" unique_id=2098446158]
+layer = 10
+
+[node name="TransitionControl" type="Control" parent="Transitions/TransitionLayer" unique_id=919960398]
+visibility_layer = 1048575
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="LoadingScreenContainer" type="Node" parent="Transitions/TransitionLayer/TransitionControl" unique_id=1035943548]
+
+[node name="TransitionContainer" type="Node" parent="Transitions/TransitionLayer/TransitionControl" unique_id=254124811]

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PanAndZoomData" format=3 uid="uid://bl5d7fp4fhs8l"]
+
+[ext_resource type="Script" uid="uid://bnfi2jwpmc3hd" path="res://composition/data/pan_and_zoom_data.gd" id="1_4n5tx"]
+
+[resource]
+script = ExtResource("1_4n5tx")
+maxZoom = 1.0
+minZoom = 0.5
+zoomStepRatio = 0.2
+panSmoothing = 1.0
+zoomSmoothing = 1.0
+limits_enabled = true
+left = -19200
+top = -10800
+right = 19200
+bottom = 10200
+metadata/_custom_type_script = "uid://bnfi2jwpmc3hd"

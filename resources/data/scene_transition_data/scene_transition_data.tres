@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SceneTransitionData" format=3 uid="uid://c64q2bqv0ym4m"]
+
+[ext_resource type="PackedScene" uid="uid://btv2v43xstugs" path="res://main/transitions/loading_screens/loading_screen_001.tscn" id="1_57ey1"]
+[ext_resource type="Script" uid="uid://drl71s2uecemh" path="res://transition/scene_transition_data.gd" id="2_aqel4"]
+[ext_resource type="PackedScene" uid="uid://b80yw4iqfjupt" path="res://main/transitions/transition_screens/transition_screen_001.tscn" id="3_57ey1"]
+
+[resource]
+script = ExtResource("2_aqel4")
+transition_scene = ExtResource("3_57ey1")
+loading_screen_scene = ExtResource("1_57ey1")
+metadata/_custom_type_script = "uid://drl71s2uecemh"

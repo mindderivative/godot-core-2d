@@ -1,0 +1,95 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dix517hv4uvvd"]
+
+[ext_resource type="Shader" uid="uid://bv8mg8sry8o5x" path="res://resources/shaders/simple_planet.gdshader" id="1_liyn3"]
+
+[sub_resource type="Gradient" id="Gradient_jed0u"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_apjh3"]
+gradient = SubResource("Gradient_jed0u")
+
+[sub_resource type="Gradient" id="Gradient_ng73y"]
+offsets = PackedFloat32Array(0, 0.58498895, 0.69536424, 0.89403975, 1)
+colors = PackedColorArray(0.46186197, 1.0588765e-06, 2.6471912e-07, 1, 0.83147275, 0.22913812, 8.2901366e-08, 1, 1, 0.33361515, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_we4sh"]
+gradient = SubResource("Gradient_ng73y")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1lsdg"]
+noise_type = 2
+frequency = 0.0249
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s14mi"]
+noise = SubResource("FastNoiseLite_1lsdg")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w4vqv"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qeyu3"]
+noise = SubResource("FastNoiseLite_w4vqv")
+
+[resource]
+shader = ExtResource("1_liyn3")
+shader_parameter/pixel_scale = 2048.0
+shader_parameter/use_texture_surface = false
+shader_parameter/use_texture_clouds = false
+shader_parameter/surface_radius = 0.5
+shader_parameter/earth_texture = SubResource("NoiseTexture2D_qeyu3")
+shader_parameter/surface_palette = SubResource("GradientTexture1D_we4sh")
+shader_parameter/background_colour = Color(0, 0, 0, 0)
+shader_parameter/surface_base_rotation = 1.10000001639132
+shader_parameter/surface_rotation_speed = 0.0400000493999999
+shader_parameter/surface_primary_cell_amount = 10
+shader_parameter/surface_primary_strength = 1.0
+shader_parameter/surface_primary_period = Vector3(9.5, 9.5, 9.5)
+shader_parameter/surface_secondary_enabled = true
+shader_parameter/surface_secondary_cell_amount = 20
+shader_parameter/surface_secondary_strength = 0.3
+shader_parameter/surface_secondary_period = Vector3(9.5, 9.5, 9.5)
+shader_parameter/surface_secondary_rotation = 0.30000000447036
+shader_parameter/surface_secondary_rotation_speed = 0.0400000493999999
+shader_parameter/surface_tertiary_enabled = true
+shader_parameter/surface_tertiary_cell_amount = 30
+shader_parameter/surface_tertiary_strength = 0.3
+shader_parameter/surface_tertiary_period = Vector3(9.5, 9.5, 9.5)
+shader_parameter/surface_tertiary_rotation = 0.0
+shader_parameter/surface_tertiary_rotation_speed = 0.0400000493999999
+shader_parameter/use_band_distortion = false
+shader_parameter/band_frequency = 10.0
+shader_parameter/band_distortion_strength = 0.3
+shader_parameter/display_cloud_shadows = false
+shader_parameter/cloud_shadow_darkness = 0.25
+shader_parameter/cloud_1_cover = 0.3
+shader_parameter/cloud_1_radius = 0.5
+shader_parameter/cloud_1_texture = SubResource("NoiseTexture2D_s14mi")
+shader_parameter/cloud_1_palette = SubResource("GradientTexture1D_we4sh")
+shader_parameter/cloud_1_rotation_speed = 0.0400000493999999
+shader_parameter/cloud_1_opacity = 0.999999977648
+shader_parameter/cloud_1_cell_amount = 10
+shader_parameter/cloud_1_fluctuation_speed = 0.0400000493999999
+shader_parameter/cloud_1_period = Vector3(9.5, 9.5, 9.5)
+shader_parameter/cloud_1_secondary_period = Vector3(9.5, 9.5, 9.5)
+shader_parameter/cloud_1_secondary_cell_amount = 50
+shader_parameter/cloud_1_secondary_strength = 0.49999996647200007
+shader_parameter/cloud_2_cover = 0.0
+shader_parameter/cloud_2_radius = 0.34
+shader_parameter/cloud_2_rotation_speed = -0.02
+shader_parameter/cloud_2_opacity = 0.5
+shader_parameter/cloud_2_cell_amount = 10
+shader_parameter/cloud_2_fluctuation_speed = 0.03
+shader_parameter/cloud_2_period = Vector3(9.5, 9.5, 9.5)
+shader_parameter/cloud_2_secondary_period = Vector3(9.5, 9.5, 9.5)
+shader_parameter/cloud_2_secondary_cell_amount = 10
+shader_parameter/cloud_2_secondary_strength = 0.3
+shader_parameter/atmosphere_radius = 0.5
+shader_parameter/atmosphere_palette = SubResource("GradientTexture1D_apjh3")
+shader_parameter/posterise = false
+shader_parameter/shading_mode = 0
+shader_parameter/maximum_brightness = 1.0
+shader_parameter/sun_strength = 2.0
+shader_parameter/shade_transition = 30.0
+shader_parameter/shade_step = 20.0
+shader_parameter/sun_direction = Vector3(1, 0.2, -0.3)
+shader_parameter/dither_levels = 0
+shader_parameter/shading_noise_cell_amount = 0
+shader_parameter/shading_noise_strength = -2.2352000028647012e-08
+shader_parameter/shading_noise_period = Vector3(9.5, 9.5, 9.5)

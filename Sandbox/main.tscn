@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://cv3h2dah738vv"]
+
+[ext_resource type="PackedScene" uid="uid://dnn3evxbcon16" path="res://Sandbox/test_scene_001.tscn" id="1_ncygy"]
+[ext_resource type="Script" uid="uid://b6j6fthjno8d6" path="res://Sandbox/change_scene_button.gd" id="2_fi7gf"]
+[ext_resource type="Resource" uid="uid://c64q2bqv0ym4m" path="res://resources/data/scene_transition_data/scene_transition_data.tres" id="3_tqarl"]
+
+[node name="Main" type="Node" unique_id=268675572]
+
+[node name="World" type="Node2D" parent="." unique_id=1698970333]
+z_index = 1
+
+[node name="PreviousScene" type="Node2D" parent="World" unique_id=823272609]
+
+[node name="CurrentScene" type="Node2D" parent="World" unique_id=1149306102]
+
+[node name="Test Scene 001" parent="World/CurrentScene" unique_id=99699784 instance=ExtResource("1_ncygy")]
+
+[node name="Player" type="Node2D" parent="World" unique_id=1289071593]
+
+[node name="GUI" type="Control" parent="." unique_id=1378702252]
+z_index = 9
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="GUILayer" type="CanvasLayer" parent="GUI" unique_id=571146361]
+
+[node name="GUIControl" type="Control" parent="GUI/GUILayer" unique_id=84808942]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="GUI/GUILayer/GUIControl" unique_id=942779528]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.46979168
+anchor_top = 0.9712963
+anchor_right = 0.53020835
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 38
+text = "Change Scene"
+script = ExtResource("2_fi7gf")
+transition_data = ExtResource("3_tqarl")
+target_scene_path = "uid://dnn3evxbcon16"
+metadata/_edit_use_anchors_ = true
+
+[node name="Transitions" type="Control" parent="." unique_id=1776868267]
+visibility_layer = 1048575
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TransitionLayer" type="CanvasLayer" parent="Transitions" unique_id=2098446158]
+layer = 10
+
+[node name="TransitionControl" type="Control" parent="Transitions/TransitionLayer" unique_id=919960398]
+visibility_layer = 1048575
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="LoadingScreenContainer" type="Node" parent="Transitions/TransitionLayer/TransitionControl" unique_id=1035943548]
+
+[node name="TransitionContainer" type="Node" parent="Transitions/TransitionLayer/TransitionControl" unique_id=254124811]
+
+[connection signal="pressed" from="GUI/GUILayer/GUIControl/Button" to="GUI/GUILayer/GUIControl/Button" method="_on_pressed"]

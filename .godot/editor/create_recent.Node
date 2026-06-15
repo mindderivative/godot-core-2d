@@ -1,0 +1,15 @@
+res://utilities/custom_nodes/star_2d.gd
+CollisionShape2D
+Area2D
+Label
+Sprite2D
+Node2D
+ColorRect
+Parallax2D
+Camera2D
+WorldEnvironment
+Panel
+Button
+HBoxContainer
+VBoxContainer
+MarginContainer

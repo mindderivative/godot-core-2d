@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dnn3evxbcon16"]
+
+[ext_resource type="Environment" uid="uid://dlhcte1ndfnjh" path="res://main/world/galaxy_systems/default_env.tres" id="1_1ab31"]
+[ext_resource type="PackedScene" uid="uid://cv3ns2qeuiboy" path="res://assets/player/player.tscn" id="1_neu8y"]
+[ext_resource type="Resource" uid="uid://bl5d7fp4fhs8l" path="res://resources/data/PanAndZoomComponent/pan_and_zoom_data_general.tres" id="2_5teig"]
+[ext_resource type="PackedScene" uid="uid://cfnjs1lks50eg" path="res://assets/enemies/enemy_triangle.tscn" id="2_r5h82"]
+[ext_resource type="Script" uid="uid://dkl12s5dijyt2" path="res://utilities/custom_nodes/visual_grid_2d_data.gd" id="2_u512e"]
+[ext_resource type="PackedScene" uid="uid://o0anjuevqm5c" path="res://assets/ammo/laser_bullet.tscn" id="3_3nhx8"]
+[ext_resource type="Script" uid="uid://825sulhs5cwf" path="res://composition/components/pan_and_zoom_component.gd" id="4_f7tuq"]
+[ext_resource type="Script" uid="uid://d1uabtou32er4" path="res://utilities/custom_nodes/visual_grid_2d.gd" id="6_uy4g5"]
+
+[sub_resource type="Resource" id="Resource_1ab31"]
+script = ExtResource("2_u512e")
+grid_color = Color(0.13139653, 0.18570116, 0.21286598, 1)
+line_width = 2.0
+metadata/_custom_type_script = "uid://dkl12s5dijyt2"
+
+[node name="Test Scene 001" type="Node2D" unique_id=99699784]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1197427602]
+environment = ExtResource("1_1ab31")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1782062865]
+z_index = -2
+repeat_size = Vector2(1920, 1080)
+repeat_times = 3
+
+[node name="ColorRect" type="ColorRect" parent="Parallax2D" unique_id=2003755632]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+color = Color(0.078431375, 0.11764706, 0.13725491, 1)
+
+[node name="VisualGrid2D" type="Node2D" parent="." unique_id=1776584703]
+script = ExtResource("6_uy4g5")
+zIndex = 0
+data = SubResource("Resource_1ab31")
+metadata/_custom_type_script = "uid://d1uabtou32er4"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=999288717]
+limit_enabled = false
+limit_left = -1920
+limit_top = -1080
+limit_right = 1920
+limit_bottom = 1080
+
+[node name="PanAndZoomComponent" type="Node" parent="Camera2D" unique_id=692969994 node_paths=PackedStringArray("parent", "target")]
+script = ExtResource("4_f7tuq")
+data = ExtResource("2_5teig")
+parent = NodePath("..")
+target = NodePath("..")
+metadata/_custom_type_script = "uid://825sulhs5cwf"
+
+[node name="Player" parent="." unique_id=115933422 instance=ExtResource("1_neu8y")]
+modulate = Color(1, 0.6039216, 0, 1)
+
+[node name="EnemyTriangle" parent="." unique_id=414792298 instance=ExtResource("2_r5h82")]
+modulate = Color(0.6328347, 0, 1.4369954, 1)
+position = Vector2(-96.27194, 9.654029)
+rotation = -0.09994461
+scale = Vector2(0.9999904, 0.9999904)
+
+[node name="MovementComponent" parent="EnemyTriangle" index="2" unique_id=1113685664 node_paths=PackedStringArray("target")]
+enabled = false
+target = NodePath("../../Player")
+
+[node name="LaserBullet" parent="." unique_id=1863413010 instance=ExtResource("3_3nhx8")]
+modulate = Color(0, 1.1985202, 1.4369954, 1)
+position = Vector2(209, -1)
+
+[editable path="EnemyTriangle"]

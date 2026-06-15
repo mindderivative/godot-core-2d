@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="LoadingScreenData" format=3 uid="uid://wrgt1sbdan2t"]
+
+[ext_resource type="Script" uid="uid://cpo7j64skbnhs" path="res://transition/loading_screen_data.gd" id="1_ia1jv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynnec"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2350n"]
+bg_color = Color(0.88235295, 0.61960787, 0, 1)
+
+[resource]
+script = ExtResource("1_ia1jv")
+progress_bar_path = NodePath("PanelContainer/VBoxContainer/ProgressBar")
+progress_bar_show_percentage = false
+background_stylebox = SubResource("StyleBoxFlat_ynnec")
+fill_stylebox = SubResource("StyleBoxFlat_2350n")
+metadata/_custom_type_script = "uid://cpo7j64skbnhs"
